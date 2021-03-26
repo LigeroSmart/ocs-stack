@@ -1,0 +1,27 @@
+version: '2'
+
+
+services:
+  web:
+    image: ligero/ocs
+    environment:
+      OCS_DB_HOST: database
+      OCS_DB_NAME: ocsweb
+      OCS_DB_USER: ocs
+      OCS_DB_PWD: L4kWujL8kjaL2
+    ports:
+      - 8009:80
+
+  database:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: d3H43cDCMNIU
+      MYSQL_DATABASE: ocsweb
+      MYSQL_USER: ocs
+      MYSQL_PASSWORD: L4kWujL8kjaL2
+    volumes:
+      - mysql:/var/lib/mysql
+
+volumes:
+  mysql: 
+    driver: local
